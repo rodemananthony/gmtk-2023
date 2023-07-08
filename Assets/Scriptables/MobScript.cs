@@ -24,6 +24,8 @@ public class MobScript : MonoBehaviour
 
     int HealthPoints;
 
+    public float seperateRadius = 1f; // Made this public so we can change it in the inspector
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +67,37 @@ public class MobScript : MonoBehaviour
         var vecToTarget = (Target.transform.position - transform.position);
 
         var distanceToInRange = Mathf.Max(vecToTarget.magnitude - Weapon.Range, 0f);
+
+        /*var hits = Physics2D.OverlapCircleAll(transform.position, seperateRadius);
+
+        float count = 0f;
+
+        float seperateSpeed = MobDetails.Speed / 2f;
+
+        Vector2 sum = Vector2.zero;
+
+        foreach (var hit in hits)
+        {
+            if (hit.GetComponent<MobScript>() != null && hit.transform != transform)
+            {
+                Vector2 difference = transform.position - hit.transform.position;
+
+                difference = difference.normalized / Mathf.Abs(difference.magnitude);
+
+                sum += difference;
+                count++;
+            }
+        }
+
+        if (count > 0)
+        {
+            sum /= count;
+            sum = sum.normalized * seperateSpeed;
+
+            transform.position = Vector2.MoveTowards(transform.position, transform.position + (Vector3)sum, seperateSpeed * Time.deltaTime);
+        }*/
+        // This works but I think it overrides the code below this. I think its just merging them both together for it to not override but I just didnt want to mess with anything here and possibly make everything worse.
+
 
         if (distanceToInRange == 0f) 
         {
