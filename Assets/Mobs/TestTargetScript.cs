@@ -13,7 +13,12 @@ public class TestTargetScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward;
+        if (Input.GetMouseButton(0))
+        {
+            Vector3 mouseXY = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mouseXY.z = 1;
+            transform.position = Vector3.forward + mouseXY ;
+        }
     }
 
 }

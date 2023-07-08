@@ -14,13 +14,6 @@ public class MobScript : MonoBehaviour
     float? AttackClock = null;
     bool IsAttacking { get => AttackClock.HasValue; }
 
-    bool _attackLock = false;
-    bool CanAttack 
-    { 
-        get => AttackClock is null && !_attackLock; 
-        set => _attackLock = value; 
-    }
-
     int HealthPoints;
 
     public float separationRadius = 1f;
@@ -55,8 +48,8 @@ public class MobScript : MonoBehaviour
         else
         {
             UpdateTransform(out bool isInRange);
-
-            if (CanAttack && isInRange)
+            Debug.Log($"{name} is {(isInRange ? "":"not ")}in range");
+            if (AttackClock is null && isInRange)
             {
                 AttackClock = 0;
                 Debug.Log($"{name}: Beginning Attack");
@@ -69,7 +62,7 @@ public class MobScript : MonoBehaviour
         var (vecToTarget, distanceToInRange) = GetTargetingData();
 
         var moveDistance = Mathf.Min(distanceToInRange, Time.deltaTime * MobDetails.Speed);
-        transform.position += moveDistance * vecToTarget.normalized;
+        transform.position += moveDistance * (Vector3)vecToTarget.normalized;
         
         
         // Only decluster if mob would move anyways
@@ -77,16 +70,19 @@ public class MobScript : MonoBehaviour
         {
             DeclusterPosition();
         }
-        
-        transform.rotation = Quaternion.Euler(0, 0, Vector3.SignedAngle(Vector3.up, vecToTarget.normalized, Vector3.forward));
 
-        (_, distanceToInRange) = GetTargetingData();
+
+        (vecToTarget, distanceToInRange) = GetTargetingData();
+
+        float angle = Mathf.Atan2(vecToTarget.y, vecToTarget.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
         isInRange = distanceToInRange <= 0f;
     }
 
-    (Vector3, float) GetTargetingData()
+    (Vector2, float) GetTargetingData()
     {
-        var vecToTarget = (Target.transform.position - transform.position);
+        Vector2 vecToTarget = Target.transform.position - transform.position;
         var distanceToInRange = Mathf.Max(vecToTarget.magnitude - Weapon.Range, 0f);
         return (vecToTarget, distanceToInRange);
     }
