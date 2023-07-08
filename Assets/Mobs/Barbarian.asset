@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Barbarian
   m_EditorClassIdentifier: 
   MaxHealth: 500
-  Speed: 20
+  Speed: 10
