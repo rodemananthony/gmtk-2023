@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyButtonManager : MonoBehaviour
 {
+    public PauseMenu PauseMenu;
     public bool isPressedOne = false;
     public bool isPressedTwo = false;
     public bool isPressedThree = false;
@@ -17,4 +18,12 @@ public class EnemyButtonManager : MonoBehaviour
     public Vector3 enemyPos;
     // This is where we can mess with the total energy the player will have per level
     public int totalEnergyInt;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenu.PauseGame();
+        }
+    }
 }
