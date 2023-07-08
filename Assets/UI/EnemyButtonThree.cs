@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class EnemyButtonThree : MonoBehaviour
 {
+    public PauseMenu PauseMenu;
     public EnemyButtonManager EnemyButtonManager;
     public DectectPlayer DectectPlayer;
     public Outline buttonOutlineOne;
@@ -30,7 +31,7 @@ public class EnemyButtonThree : MonoBehaviour
             EnemyButtonManager.indicatorThree.GetComponent<SpriteRenderer>().color = Color.red;
         }
 
-        if (EnemyButtonManager.isPressedThree == true)
+        if (EnemyButtonManager.isPressedThree == true && PauseMenu.isPaused == false)
         {
             EnemyButtonManager.mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             //indicator follows mousepos while it is active
