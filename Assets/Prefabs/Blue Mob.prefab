@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 408540837177802810}
   - component: {fileID: 408540837177802809}
   - component: {fileID: 408540837177802805}
+  - component: {fileID: -4812991129105538648}
   m_Layer: 0
   m_Name: Blue Mob
   m_TagString: Enemy
@@ -138,3 +139,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4812991129105538648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408540837177802815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f994eaf64a19249bd494b1106c8d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthPoints: 100

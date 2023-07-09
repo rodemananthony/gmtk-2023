@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6106699528587785192}
   - component: {fileID: 6106699528587785194}
   - component: {fileID: 6106699528587785195}
+  - component: {fileID: 1125192034305875467}
   m_Layer: 0
   m_Name: Green Mob
   m_TagString: Enemy
@@ -138,3 +139,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1125192034305875467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6106699528587785189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f994eaf64a19249bd494b1106c8d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthPoints: 100

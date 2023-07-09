@@ -5,9 +5,10 @@ using UnityEngine;
 public class SurvivorScript : MonoBehaviour
 {
     //public MobDetails Details;
-    public bool moveAway;
+    public bool shouldMoveAway;
     public Transform enemyTrans = null;
     public float speed = 7;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class SurvivorScript : MonoBehaviour
 
         Vector2 pos = Camera.main.WorldToViewportPoint(transform.position);
         // For moving away from enemies
-        if (moveAway == true)
+        if (shouldMoveAway && enemyTrans != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, enemyTrans.position, Time.deltaTime * speed * -1);
 
@@ -40,7 +41,7 @@ public class SurvivorScript : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            moveAway = true;
+            shouldMoveAway = true;
             enemyTrans = collision.transform;
         }
     }

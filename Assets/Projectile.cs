@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour
         // timer to destory the projectile if the projectile doesnt hit anything
         if(timePassed < timeToDestroy)
         {
-            timePassed = timePassed + Time.deltaTime;
+            timePassed += Time.deltaTime;
         }
         else
         {
@@ -46,6 +46,7 @@ public class Projectile : MonoBehaviour
         {
             // you should be able to get the MobScript from here using collision.GetComponent<MobScript>(); as well as any other component on the enemy it hit if needed
             Debug.Log("damage");
+            collision.GetComponent<HealthScript>().TakeDamage(RangedWeapon.damage);
             Destroy(gameObject); // This works in the sense that it does delete the projectile, but theres a chance that it will destroy the projectile before it can actually go through with any more code that is added so keep that in mind.
         }
     }

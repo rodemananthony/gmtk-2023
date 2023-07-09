@@ -28,6 +28,8 @@ public class MobScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Target == null) return;
+
         if (AttackClock is float clock) 
         {
             clock += Time.deltaTime;

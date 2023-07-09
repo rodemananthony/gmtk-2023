@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   proj: {fileID: 6423609564381857909, guid: 2c75f9d5c71ade24db9d42c7e2ef550f, type: 3}
   enemy: {fileID: 0}
+  damage: 100
   enemyPos: {x: 0, y: 0}
 --- !u!1 &2003716560600559040
 GameObject:
@@ -180,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5915cc5e3bb3c3043be7e572a6d45d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAway: 0
+  shouldMoveAway: 0
   enemyTrans: {fileID: 0}
   speed: 7
 --- !u!114 &2003716560600559103
@@ -195,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f994eaf64a19249bd494b1106c8d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthPoints: 100000000
+  HealthPoints: 1000
 --- !u!50 &2003716560600559097
 Rigidbody2D:
   serializedVersion: 4

@@ -69,6 +69,7 @@ public class PauseMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Roman_Scene");
+        Time.timeScale = 1f;
     }
 
     public void BackToMain()

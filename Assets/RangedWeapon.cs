@@ -8,7 +8,9 @@ public class RangedWeapon : MonoBehaviour
     public GameObject enemy;
     float timeToAttack = 5f;
     float cooldown = 1f;
+    public int damage = 100;
     public Vector2 enemyPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class RangedWeapon : MonoBehaviour
     void Update()
     {
         // cooldown moment
-        timeToAttack = timeToAttack + Time.deltaTime;
+        timeToAttack += Time.deltaTime;
     }
 
 
