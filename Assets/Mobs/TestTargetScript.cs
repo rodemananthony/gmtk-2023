@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TestTargetScript : MonoBehaviour
 {
+    public bool test = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,7 @@ public class TestTargetScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && test == true)
         {
             Vector3 mouseXY = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseXY.z = 1;

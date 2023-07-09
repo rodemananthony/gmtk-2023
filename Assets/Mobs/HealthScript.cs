@@ -16,8 +16,14 @@ public class HealthScript : MonoBehaviour
         Debug.Log($"{name} takes {damage} damage");
         HealthPoints -= damage;
 
-        if (HealthPoints <= 0 )
+
+        if(HealthPoints == 0)
         {
+            Destroy(gameObject);
+        }
+        if (HealthPoints < 0 )
+        {
+            HealthPoints = 0;
             Destroy(gameObject);
         }
     }

@@ -99,7 +99,7 @@ public class MobScript : MonoBehaviour
 
         foreach (var hit in hits)
         {
-            if (hit.GetComponent<MobScript>() != null && hit.transform != transform)
+            if (hit.CompareTag("Enemy") && hit.transform != transform)
             {
                 Vector2 difference = transform.position - hit.transform.position;
 
