@@ -1639,7 +1639,7 @@ PrefabInstance:
       objectReference: {fileID: 881256444}
     - target: {fileID: 2020261411605073118, guid: 89008f67ec952a84c958e6641820b1dc, type: 3}
       propertyPath: totalEnergyInt
-      value: 75
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2020261411605073118, guid: 89008f67ec952a84c958e6641820b1dc, type: 3}
       propertyPath: enemySpawnedOne

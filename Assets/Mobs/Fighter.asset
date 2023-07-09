@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Fighter
   m_EditorClassIdentifier: 
   MaxHealth: 300
-  Speed: 8
+  Speed: 9
