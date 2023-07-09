@@ -7,7 +7,7 @@ public class RangedWeapon : MonoBehaviour
     public GameObject proj;
     public GameObject enemy;
     float timeToAttack = 5f;
-    float cooldown = 1f;
+    float cooldown = .5f;
     public int damage = 100;
     public Vector2 enemyPos;
 

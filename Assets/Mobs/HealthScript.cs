@@ -8,7 +8,11 @@ public class HealthScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //HealthPoints = FindAnyObjectByType<MobDetails>().MaxHealth;
+        int? mobHealth = FindAnyObjectByType<MobScript>()?.MobDetails.MaxHealth;
+        if (mobHealth != null)
+        {
+            HealthPoints = mobHealth.Value;
+        }
     }
 
     public void TakeDamage(int damage)

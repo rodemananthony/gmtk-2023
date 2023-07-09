@@ -196,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2003716560600559103, guid: 032f5f1c951d06349ab3dc815992e5bf, type: 3}
       propertyPath: HealthPoints
-      value: 2000
+      value: 20000
       objectReference: {fileID: 0}
     - target: {fileID: 5979669245486345746, guid: 032f5f1c951d06349ab3dc815992e5bf, type: 3}
       propertyPath: m_Enabled
@@ -1639,7 +1639,7 @@ PrefabInstance:
       objectReference: {fileID: 881256444}
     - target: {fileID: 2020261411605073118, guid: 89008f67ec952a84c958e6641820b1dc, type: 3}
       propertyPath: totalEnergyInt
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 2020261411605073118, guid: 89008f67ec952a84c958e6641820b1dc, type: 3}
       propertyPath: enemySpawnedOne
@@ -1661,6 +1661,12 @@ PrefabInstance:
       propertyPath: DectectPlayer
       value: 
       objectReference: {fileID: 881256448}
+    - target: {fileID: 4565694261153295749, guid: 89008f67ec952a84c958e6641820b1dc, type: 3}
+      propertyPath: m_Text
+      value: 'Raider
+
+        (3 Energy)'
+      objectReference: {fileID: 0}
     - target: {fileID: 4565694261376196093, guid: 89008f67ec952a84c958e6641820b1dc, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -1760,6 +1766,18 @@ PrefabInstance:
     - target: {fileID: 4565694261547461621, guid: 89008f67ec952a84c958e6641820b1dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565694261639643618, guid: 89008f67ec952a84c958e6641820b1dc, type: 3}
+      propertyPath: m_Text
+      value: 'Tank
+
+        (5 Energy)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565694263000439862, guid: 89008f67ec952a84c958e6641820b1dc, type: 3}
+      propertyPath: m_Text
+      value: 'Fighter
+
+        (4 Energy)'
       objectReference: {fileID: 0}
     - target: {fileID: 8622686640097555116, guid: 89008f67ec952a84c958e6641820b1dc, type: 3}
       propertyPath: DectectPlayer

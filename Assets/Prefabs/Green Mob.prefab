@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f81c5ba2ab01b4ba3835de459fad45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MobDetails: {fileID: 11400000, guid: 698e0f63b6cf93b4199a8b342bdf8a8a, type: 2}
+  MobDetails: {fileID: 11400000, guid: 2c8a71ab64a3eea4c8ba3bb25c674078, type: 2}
   Weapon: {fileID: 11400000, guid: 855e2547dd59a2441aea31c2efe3eb41, type: 2}
 --- !u!212 &6106699528587785192
 SpriteRenderer:

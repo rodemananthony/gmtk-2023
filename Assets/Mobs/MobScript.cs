@@ -7,8 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class MobScript : MonoBehaviour
 {
-    [SerializeField] MobDetails MobDetails;
-    [SerializeField] WeaponData Weapon;
+    public MobDetails MobDetails;
+    public WeaponData Weapon;
     GameObject Target { get; set; }
     MobManagerScript Manager { get; set; }
 
