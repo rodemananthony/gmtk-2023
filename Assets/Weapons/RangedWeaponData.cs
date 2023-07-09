@@ -15,6 +15,6 @@ public class RangedWeaponData : WeaponData
 
     public override void Attack(GameObject primaryTarget, TargetEnum validTargets, GameObject source)
     {
-        Instantiate(AttackPrefab, source.transform);
+        var attackObject = Instantiate(AttackPrefab, source.transform);
     }
 }

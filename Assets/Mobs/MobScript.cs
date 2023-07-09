@@ -1,30 +1,28 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
+[RequireComponent(typeof(Collider2D))]
 public class MobScript : MonoBehaviour
 {
     [SerializeField] MobDetails MobDetails;
     [SerializeField] WeaponData Weapon;
     GameObject Target { get; set; }
+    MobManagerScript Manager { get; set; }
 
     [SerializeField]
     float? AttackClock = null;
-    bool IsAttacking { get => AttackClock.HasValue; }
+    bool IsCoolingDown = false;
 
-    int HealthPoints;
-
-    public float separationRadius = 1f;
-    public float separationMoveFactor = .25f;
+    bool CanAttack { get => AttackClock is null && !IsCoolingDown; }
 
     // Start is called before the first frame update
     void Start()
     {
-        Target = GameObject.FindGameObjectWithTag("Target");
-
-        HealthPoints = MobDetails.MaxHealth;
+        Target ??= GameObject.FindGameObjectWithTag("Target");
+        Manager ??= FindAnyObjectByType<MobManagerScript>();
     }
 
     // Update is called once per frame
@@ -49,7 +47,7 @@ public class MobScript : MonoBehaviour
         {
             UpdateTransform(out bool isInRange);
             Debug.Log($"{name} is {(isInRange ? "":"not ")}in range");
-            if (AttackClock is null && isInRange)
+            if (CanAttack && isInRange)
             {
                 AttackClock = 0;
                 Debug.Log($"{name}: Beginning Attack");
@@ -68,7 +66,7 @@ public class MobScript : MonoBehaviour
         // Only decluster if mob would move anyways
         if (moveDistance > 0f)
         {
-            DeclusterPosition();
+            DeclusterPosition(vecToTarget);
         }
 
 
@@ -88,13 +86,13 @@ public class MobScript : MonoBehaviour
     }
 
 
-    public void DeclusterPosition()
+    public void DeclusterPosition(Vector2 slipDirection)
     {
-        var hits = Physics2D.OverlapCircleAll(transform.position, separationRadius);
+        var hits = Physics2D.OverlapCircleAll(transform.position, Manager.separationRadius);
 
         int count = 0;
 
-        float seperateSpeed = MobDetails.Speed * separationMoveFactor;
+        float seperationSpeed = MobDetails.Speed * Manager.separationMoveFactor;
 
         Vector2 sum = Vector2.zero;
 
@@ -104,7 +102,7 @@ public class MobScript : MonoBehaviour
             {
                 Vector2 difference = transform.position - hit.transform.position;
 
-                sum += difference.normalized;
+                sum += difference / Mathf.Pow(difference.magnitude, 2);
                 count++;
             }
         }
@@ -112,16 +110,19 @@ public class MobScript : MonoBehaviour
         if (count > 0)
         {
             sum /= count;
-            sum = sum.normalized * seperateSpeed;
+            sum = (sum.normalized * seperationSpeed);
 
-            transform.position = Vector2.MoveTowards(transform.position, transform.position + (Vector3)sum, seperateSpeed * Time.deltaTime);
+            // slip is meant to help prevent mobs getting stuck between 
+            //sum += slipDirection.normalized * Manager.separationSlipFactor;
+
+            transform.position = Vector2.MoveTowards(transform.position, transform.position + (Vector3)sum, seperationSpeed * Time.deltaTime);
         }
 
     }
 
-
-    public void AssignDamage(int damage)
+    public void StartAttack()
     {
-        HealthPoints -= damage;
+        Weapon.Attack(Target, TargetEnum.Survivor, gameObject);
     }
+
 }

@@ -9,6 +9,8 @@ public class MeleeWeaponData : WeaponData
 
     public override void Attack(GameObject primaryTarget, TargetEnum validTargets, GameObject source)
     {
-        throw new System.NotImplementedException();
+        var attackObject = Instantiate(AttackPrefab, source.transform);
+        var attackScript = attackObject.GetComponent<MeleeAttackScript>();
+        attackScript.Weapon = this;        
     }
 }

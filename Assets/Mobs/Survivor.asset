@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83116bbd34d3b3343b9be89a9a302308, type: 3}
-  m_Name: Sword
+  m_Script: {fileID: 11500000, guid: 4516f732e8a444e43be36bdfbffff43d, type: 3}
+  m_Name: Survivor
   m_EditorClassIdentifier: 
-  Range: 0.6
-  CooldownSeconds: 0.5
-  Damage: 90
-  AttackTime: 0.5
-  AttackPrefab: {fileID: 7219862422509320988, guid: d238ea1d948ce2d4ea0a86756d847f03, type: 3}
-  ArcAngleRad: 1.5707964
+  MaxHealth: 10000
+  Speed: 10
