@@ -6,7 +6,7 @@ public abstract class WeaponData : ScriptableObject
 {
     public float Range;
     public float CooldownSeconds;
-    public float Damage;
+    public int Damage;
     public float AttackTime;
 
     public GameObject AttackPrefab;

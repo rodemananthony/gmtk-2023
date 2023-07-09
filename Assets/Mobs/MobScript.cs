@@ -51,6 +51,7 @@ public class MobScript : MonoBehaviour
             {
                 AttackClock = 0;
                 Debug.Log($"{name}: Beginning Attack");
+                StartAttack();
             }
         }
     }

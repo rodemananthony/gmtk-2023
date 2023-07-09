@@ -11,7 +11,7 @@ public class MeleeAttackScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.transform.localScale.Set(gameObject.transform.localScale.x, Weapon.Range, 1);
+        gameObject.transform.localScale.Set(Weapon.Range, gameObject.transform.localScale.y, 1);
     }
 
     // Update is called once per frame
@@ -31,11 +31,20 @@ public class MeleeAttackScript : MonoBehaviour
         // also need to filter out targets
         //      WeaponData.Attack() has this info available, which can be provided to this script
         // on hit: objectThatIsHit.GetComponent<HealthScript>().TakeDamage(Weapon.Damage)
-        
 
         if (AttackClock >= Weapon.AttackTime)
         {
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Target") == true)
+        {
+            collision.GetComponent<HealthScript>().TakeDamage(Weapon.Damage);
+            //Debug.Log("hit player");
+        }
+    }
+
 }

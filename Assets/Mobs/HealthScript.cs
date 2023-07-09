@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class HealthScript : MonoBehaviour
 {
-    int HealthPoints;
+    public int HealthPoints = 1000000;
     // Start is called before the first frame update
     void Start()
     {
-        HealthPoints = FindAnyObjectByType<MobDetails>().MaxHealth;
+        //HealthPoints = FindAnyObjectByType<MobDetails>().MaxHealth;
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         Debug.Log($"{name} takes {damage} damage");
         HealthPoints -= damage;

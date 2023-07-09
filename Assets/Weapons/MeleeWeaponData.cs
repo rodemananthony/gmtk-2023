@@ -9,8 +9,11 @@ public class MeleeWeaponData : WeaponData
 
     public override void Attack(GameObject primaryTarget, TargetEnum validTargets, GameObject source)
     {
+        //Debug.Log(validTargets);
         var attackObject = Instantiate(AttackPrefab, source.transform);
         var attackScript = attackObject.GetComponent<MeleeAttackScript>();
-        attackScript.Weapon = this;        
+        attackScript.Weapon = this;
+        //Debug.Log(attackScript);
     }
+
 }
